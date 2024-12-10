@@ -1,13 +1,13 @@
 services:
   db:
-    image: mysql
+    image: mysql:8.4.0
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
     ports:
       - 3306:3306
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      test: ["CMD", "mysqladmin", "ping", "--silent"]
       interval: 5s
       timeout: 3s
       retries: 2
